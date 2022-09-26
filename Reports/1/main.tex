@@ -1,0 +1,173 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{afterpage}
+\usepackage{fontspec}
+\usepackage{titlesec}
+\usepackage[bottom]{footmisc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\definecolor{titlepagecolor}{cmyk}{0,.95,0.25,.65}
+
+% Fonts
+
+\setmainfont{IBMPlexSans}[
+	Path=./fonts/,
+	BoldFont=*-Bold,
+	UprightFont=*,
+	ItalicFont=*-Italic,
+	BoldItalicFont=*-BoldItalic,
+]
+
+\newfontfamily{\headerfont}{Serenity}[
+	Path=./fonts/,
+	UprightFont=*-Medium,
+]
+
+
+% Customization
+
+
+% Actual document
+\geometry{
+ a4paper,
+ left=2.5cm,
+ right=2.5cm,
+ top=2.15cm,
+ bottom=1.15cm
+}
+\begin{document}
+
+\setlength\parindent{0pt}
+\setlength{\parskip}{1em}
+\pagestyle{empty}
+
+\title{"WikiMovies" Design Documentation (1st version)}
+\author{Alexander Matzen \addvspace{1em} Student Number: 493840 \newline E-mail Address: almat20@student.sdu.dk}
+\date{\today}
+
+\include{title}
+\pagecolor{white}
+
+\tableofcontents
+
+\addvspace{2.5cm}
+
+\section{Strategy}
+
+\subsection{Product Objectives}
+
+% Describe the business goals 
+\subsubsection{Business Goals}
+The core business goal is to run an independent digital database with focus on movies, TV-series and related data like actors, producers, distribution companies and their relationships with high integrity which means the data should be equally accessible.
+
+
+The app is owned and operated by the Wikimedia Foundation, an online non-profit information distribution company, mostly known for Wikipedia, Wikidata and MediaWiki.
+
+The app's business model is therefore not to make a profit, which means the app needs another way to sustain operating costs like hosting, development etc.. To address this issue, the app relies on the donors of the Wikimedia Foundation and limits operating cost by using the existing Wikimedia infrastructure for hosting and serving the data.
+
+
+
+
+% Very brief overview of the app
+\subsubsection{Product Overview}
+
+The app is a simplified app interface for accessing movie, TV-series and related information like actors, movie crew, publishing companies, related legal information and addressing and noting of criticism and interventions.
+
+% Describe possible competitors
+\subsubsection{Competitors}
+Notable identified competitors for the app are
+\begin{itemize}
+  \item \textbf{IMDb} — a commercial service run by Amazon, Inc. The service relies on advertisements, it's IMDb Pro service and third party API access for revenue. IMDb is not that focused in it's business field as it has two perspectives: the Professional perspective vs the Consumer perspective. The first of which is a kind of LinkedIn for actors, movie professional and similar and can be used to cast the right people. The consumer perspective is the database concept, and has the advantage of high usability and ease of access, some of it paywalled though - and the service is dependent on advertisement and promotions of movies, which makes the service not compliant with the equal access principle.
+  \item \textbf{The Movie Database} — a commercial service run by TiVo Platform Technologies, LLC. The service is free-to-access for everyone, and has a free-to-use attribution-required API for third party integrations. The service do however monetize using sponsored affiliate links to external sites like JustWatch\footnote{JustWatch.com is an online site providing overview of which subscription, buy and rent streaming services, you can access the movie on.}, along with TiVo's own services which includes an IPTV platform (smart content streaming interfaces using the internet).
+\end{itemize}
+
+The WikiMovies app does however provide some key advantages that these notable identified competitors don't offer. First of which, the app is limited to avoid any sponsored content as this would conflict with the articles of association for the Wikimedia Foundation, and the app would have a legitimate interest in keeping valid objective information available regardless of economic or political pressure.
+
+
+\subsection{User Needs}
+
+% Describe the NEEDS that you want to fill with your app 
+% Describe the main GOALS your app allows users to achieve
+% (If relevant) Divide user needs through USER SEGMENTATION
+\subsubsection{Needs \& goals}
+Users have the need to
+\begin{itemize}
+  \item have key metadata displayed in a simple overview
+  \item trust the metadata to be valid and objectively
+  \item be able to see relationships between captured data
+\end{itemize}
+
+\subsubsection{User Research}
+
+The need for "WikiMovies" is an independent platform providing information, that is unaltered and with high integrity. The targeted user is mainly a communitive member of the Wiki-community, who is interested in sharing his knowledge related particularly to a movie with the world. However due to the high level of integrity, app stores and search engines are expected to rank the app in the top results, which will lead to a broad segment of information consuming users.
+
+The app should therefore both be accessible and easy for advanced use, for instance in the context of people already in the wiki community, but also the regular people, who want fast and easy access to the information requested.
+
+\subsubsection{Personas}
+
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=12cm]{800w/justin.png}
+	\caption{Persona for "Justin"}
+\end{figure}
+
+\addvspace{1cm}
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=12cm]{800w/marcelo.png}
+	\caption{Persona for "Marcelo"}
+\end{figure}
+
+
+\section{Scope}
+
+% Provide a list of all the features of your app.
+\subsubsection{Features}
+
+\begin{itemize}
+  \item Access essential movie data like genres, release date and description
+  \item Access in-depth movie data like box offices, companies related, film location sites, release dates in specific countries
+  \item Access essential credits like movie actors and crew
+  \item Access in-depth credits like dubbers and translators
+\end{itemize}
+
+
+% Provide a list of other requirements (not implicitly included in the features) of your app (for instance, branding requirements, technical requirements, …).
+\subsubsection{Other requirements}
+
+\begin{itemize}
+  \item The app should identify as familiar with current Wikimedia projects
+  \item The app should have a fast load time
+  \item The app should have the highest compatibility level, supporting all supported OS versions
+\end{itemize}
+
+
+% It is a short, simple narrative describing how a persona might go about trying to fulfill one of those user needs. By imagining the process our users might go through, we can come up with potential requirements to help meet their needs. (One for persona)
+\subsubsection{Scenarios}
+
+\section{Structure}
+
+\textbf{Scenario 1:} Justin is writing an article of a hacker attack of a publishing studio related to a movie, that triggered a diplomatic reaction from a foreign power. The attack reminds him of a similar scenario from \textit{The Interview} (2014), and he wanted to draw parallels between the movies to find any links between the movies other than the plot. He know IMDb is available in the foreign power and that IMDb has previously redacted information on request of territorial governments. Justin needs an objective and independent source of metadata for the movies, he is investigating. He goes to WikiMovies to find the detailed information of publishing companies and published legal documents about the movies to research prior to his article.
+
+% Navigation model of your app.
+\subsubsection{Navigation model}
+
+% UML Class diagram that represents the data model of the app containing entities and relationships between them. Entities and relationships derive from the functionality and scenarios described in the previous chapter.
+\subsubsection{Data model}
+
+% Lo-Fi Wireframes of your app. In this phase you have to create a complete wireframe representing all the views described in the navigation model.
+% Also, for each LO-FI wireframe give a brief description and highlight the design principles used and the design patterns.
+\section{Skeleton}
+
+
+
+
+\end{document}
