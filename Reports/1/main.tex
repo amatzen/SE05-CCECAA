@@ -12,7 +12,7 @@
 \usepackage{hyperref}
 \usepackage{fancyhdr}
 
-\definecolor{titlepagecolor}{cmyk}{0.82, 0.25, 0.23, 0.35}
+\definecolor{titlepagecolor}{rgb}{0,0,.65}
 
 % Fonts
 
@@ -35,19 +35,19 @@
 
 % Actual document
 \geometry{
- a4paper,
- left=2.5cm,
- right=2.5cm,
- top=2.15cm,
- bottom=1.15cm
+  a4paper,
+  left=2.5cm,
+  right=2.5cm,
+  top=2.15cm,
+  bottom=1.15cm
 }
 \begin{document}
 
 \setlength\parindent{0pt}
-\setlength{\parskip}{1em}
+\setlength{\parskip}{.25em}
 \pagestyle{empty}
 
-\title{Industry Talks \#1: }
+\title{Industry Talks \#1: Google Cloud}
 \author{Alexander Matzen \addvspace{1em} Student Number: 493840 \newline E-mail Address: almat20@student.sdu.dk}
 \date{\today}
 
@@ -56,22 +56,41 @@
 
 \section*{Report}
 
-\subsection*{The context}
+%\subsection*{The context}
 % give some general information about the company and its domain, specifications, and competitive advantages (the teacher assesses if the student understands the context, cloud providers' services, and their customers' needs).
 
 
-
-\subsection*{The specified problem}
+%\subsection*{The specified problem}
 % specify a problem the provider/customer face, and argue that in functional/non-functional levels [they may indirectly deal with a problem and avoid mentioning it in the presentation, for instance, when they explain their solutions on sustainability, scalability, etc. However, there should be a problem for which a solution is proposed] (the teacher makes sure the student understands issues that could be solved or raised by Cloud adoption)
 
-\subsection*{The solution methodology}
+%\subsection*{The solution methodology}
 % explain how the cloud provider/customer solves the specified problem, what methods they use, what process/architecture they follow, and how their solution stands better than other solutions [you may need to search a little bit in addition to what you hear in the speeches] (the teacher assesses if the student understands various solutions offered by cloud providers and adopted by customers)
 
-\subsection*{Theoretical and technical validity of the solution}
+
+%\subsection*{Theoretical and technical validity of the solution}
 % based on your experience as a software engineer, how would you analyze the solution's feasibility and quality? (the teacher looks for the student's analysis capability and innovative mind and sees how they can frame their previous education in specific problems in the Cloud Computing domain)
 
-\subsection*{Takeaways}
+%\subsection*{Takeaways}
 % explain what you have found interesting/trending/applicable/revolutionary in the talk (the teacher would like to see the student's comprehension of novel trends and applications.
+
+\subsection*{Context}
+Google is a well-known global corporation consisting of 135,000+ employees. The company has two overall sections of customers: Consumers and Businesses. Their consumers are mainly monetized using personalized advertisement practices, while their business users often are provided with billing concepts as pay-as-you-go and subscriptions. Google Cloud is the Cloud product of Google, it includes Google Cloud Platform (“GCP”), Google Workspace and API’s such as the Google Maps API.
+
+\subsection*{The specified problem}
+Businesses comes in all different sizes, with different balances and with different needs, therefore it’s hard for a lot of companies wanting to digitize to invest heavily in on-premises and private cloud infrastructure. Along with the high upfront cost, it also requires maintenance from electricians, networking specialists, security personnel etc. to ensure meeting regulations like GDPR and to comply with certifications their customers may demand. This is specifically the case for most SMEs.
+
+However, larger businesses may also have a problem with scaling. If you have the right personnel and have your own datacenter(s), you are doing good. However, you might see a rapid change in needs, for instance at Black Friday for ecommerce businesses. Here you would end up in new costs just to keep up with spiking demand for a temporary period along with an increased recurring cost for zombie servers the rest of the year.
+
+\subsection*{The solution methodology}
+Google’s data center and private cloud offering has been built with purpose-built hardware and software alike and the computer resources are, according to Christian Stahl, combined to a large machine where virtualization play the key role in achieving multitenancy.
+
+Google has different service offerings within all fields of the Pizza-as-a-Service 2.0  model (a Cloud Delivery Model), most is billed using a pay-as-you-go but few offers subscription-based payments instead. For small businesses Google Sheets, GC AppSheet or similar may be enough. For a medium sized software business, a Platform-as-a-Service approach using Google App Engine or GC Run may be relevant to mitigate the costs of applying complex virtual networking configurations. For large businesses, the Infrastructure-as-a-Service may be favorable as it maximizes control for the cloud consumer, but still mitigates issues with supply chain issues when scaling.
+
+To help Cloud Consumers navigating in using the right services for their needs, GCP along with competitors usually have defined best practices for which services are the most applicable for the cloud consumer. Additionally, the cloud providers also offer certifications and training in using their complex platforms.
+
+\subsection*{Theoretical and technical validity of the solution}
+The setups are determining the validity outcome of a particular solution, but the overall offerings from cloud providers like GCP are very similar and often uses open source and well tested software. GCP has made a bold entry to the market with the offering of Kubernetes, both as a managed GCP solution but also as open-source software.
+
 
 
 \end{document}
