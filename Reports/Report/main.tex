@@ -58,21 +58,67 @@
 \section{Context}
 % Show that you understand the context of the use case and its dimensions.
 
+\textit{OdenseEmergency} provides Software-as-a-Service for emergency management to use for both emergency personell and citizens. The company offers their software platform on a global scale and have along with increasing disasters experienced an exponential growth pattern in users.
+\newline\newline
+The given application is a mobile application that routes people to safe areas in disaster zones and monitors human expression along with location data to encourage users to take the responsible actions and remain calm in difficult situations.
+
 \section{Problem Specification}
 % Specify the problems the case addresses.
 % Analyze the use case carefully.
 % Explain the target requirements (functional and non-functional).
 
-\section{Background}
-%
+Specified in the case, \textit{OdenseEmergency} has two non-functional requirements: \textbf{performance} and \textbf{energy consumption}. Along with that, the application is considered vital for human lives, and should therefore also provide high \textbf{availability} and \textbf{reliability}.
+\newline\newline
+Due to the fact, that the application also is used in disasters, we may expect a highly variable rate of active users, so scalability is key to meet the performance requirements.
+\newline\newline
+Compliance with relevant regulation is also needed, for instance the GDPR, if any European citizen data is stored or processed.
 
+\subsection{Working Questions}
+\begin{itemize}
+  \item Which Cloud Computing Deployment Model would suit the application best given the requirements?
+  \item How can the application be deployed with the minimal energy consumption?
+\end{itemize}
+
+
+\section{Background}
+% Here include state-of-the-art knowledge if you want to include some of your academic / tool research.
+
+\subsection{Theory}
+
+\subsubsection{Computing}
+
+The right compute configuration can enable scalability and elasticity, providing a cost benefit but also an availability and performance benefit for the application.
+\newline\newline
+\textbf{Cloud Computing Models}\footnote{\href{https://engineering.dunelm.com/pizza-as-a-service-2-0-5085cd4c365e}{https://engineering.dunelm.com/pizza-as-a-service-2-0-5085cd4c365e}}\newline
+Choosing the right Cloud Computing Model is a decision of defining the responsibility areas between the Cloud Provider and the Cloud Consumer.
+
+
+\subsubsection{Networking}
+
+A correct networking is necessary for keeping the system reliable and secure, but a good network design can also increase performance for the application.
+\newline\newline
+\textbf{Virtual Private Cloud} is a private network within the cloud, that can be used to isolate services between cloud ressources. The use of VPCs may be relevant to isolate databases from the public internet, strengthening the database security and reduce latency as the ressources are shared in the network.
+
+\subsection{Toolings}
+
+\textbf{Infrastructure as Code}\newline
+By using Infrastructure as Code, the way of architecting and implementing a cloud solution is done in a declarative way. The main advantage for the declarative way is to have version control for the cloud setup and portability between cloud accounts.
 
 \section{Approach}
+% Here you include your architecture as figure(s) and explain your solution, the architecture components, their association, etc. It would be appreciated if you could argue based on what you learned in the lectures/labs, so argue based on network, storage, monitoring, data requirements, and edge-cloud specifications. Do not forget to analyze the use case beforehand.
+
+The application contains a frontend and a backend, where the frontend can be prerendered and sent to the client as a static PWA application, and the backend has a Node runtime, that must be run server side. The two parts communicate using WebSockets and a REST API interface.
+
+...
 
 \section{Implementation}
+% Explain how you implement the app locally, then deploy it on GCP, and how the adaptation system (if any) may work. Explain the technologies you use for the non-functional requirements testing.
+
 
 \section{Evaluation}
+% Here include a report of your test results and discuss their validity and alignment with objectives.
 
 \section{Discussion}
+% Final discussions and lessons learned and how your suggested architecture could be re-used.
 
 \end{document}
