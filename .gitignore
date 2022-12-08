@@ -1,2 +1,8 @@
 .env
 *.pdf
+*.ttf
+*.otf
+*.out
+*.aux
+*.log
+*.synctex.gz
