@@ -55,32 +55,7 @@
 \pagecolor{white}
 
 
-\subsection*{Context}
-The context
-Oracle is a multinational IT corporation known for its huge stake in enterprise software solutions, notoriously known for its database server software solutions and the software development platform Java. Oracle’s previous business model was software licensing, and although the same business model is still in effect, Oracle has also adopted cloud offerings in its solution portfolio for its customers. Oracle’s Cloud division is divided into two sections:
-\begin{itemize}
-	\item Oracle Cloud Infrastructure (“OCI”) for its IaaS (incl. FaaS, PaaS etc.) solutions
-	\item Oracle Cloud Applications (“OCA”) for its SaaS solutions, this includes ERP systems etc.
-\end{itemize}
 
-\subsection*{The Specified Problem}
-Oracle’s long time customers have built large and complex enterprise applications based upon Oracle’s software offerings based on dedicated IT infrastructure. However, the customers still want to adopt the benefits of cloud computing mainly for the flexibility and elasticity the cloud promises, but also still have the reliability requirements that on-prem can provide such as security, compliance and performance. The migration from hosting the application on-prem into a cloud solution is, unlike a cloud-native software solution, hard, and it should be as frictionless as possible to convince their customers to adopt the cloud.
-
-\subsection*{The solution methodology}
-Oracle describes the following as critical for running enterprise applications in the cloud without refactoring: Peak dedicated compute power reserved, Dedicated ultra-low latency network, High available and scalable clusters and Persistent connections to relational databases.\newline
-\newline
-\textbf{Peak dedicated compute power and High available and scalable clusters}  Oracle has more servers than AWS, which is the current largest cloud provider. Additionally, they believe in multi cloud, so their customers are not locked in to one single public cloud vendor, but can orchestrate how they prefer.\newline
-\newline
-\textbf{Dedicated ultra-low latency network}  They use a flat network (based on Clos principles) with maximum of 2 hops between any two resources to accomplish low latency, that they can guarantee in their SLAs.\newline
-\newline
-\textbf{Persistent connections to relational databases}  Oracle provides a managed relational database called the Autonomous Database, which is a managed solution.
-
-\subsection*{Theoretical and technical validity of the solution}
-While the given solution is somewhat well argumented, I think the presentation had a lot of marketing perspectives and lacked a bit of the technical aspects to tell why the solutions proposed by Oracle actually would help. I could imagine, that the offerings that Oracle have can also be applied in different cloud environments.
-
-\subsection*{Takeaways}
-I take Oracle’s ambition of multi cloud as interesting and relevant, but I think they haven’t gone too much into details about how to implement a standardized multi cloud environment yet. The closest I could imagine as a multi cloud solution would be Kubernetes.
-I also find their network strategy great to reduce latency, but I don’t think in practice it differs enough from their competitors.
 
 
 \end{document}
