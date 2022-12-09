@@ -101,18 +101,39 @@ A correct networking is necessary for keeping the system reliable and secure, bu
 
 \subsection{Toolings}
 
+\textbf{Cloud Architecture Diagram Tool}
+
+
+
 \textbf{Infrastructure as Code}\newline
 In my original plan, I intended to use infrastructure as code for the benefit of version control (Git) and portability. However, due to time management constraints, I was unable to implement this approach.
 
 Infrastructure as code is a good idea because it allows for version control and collaboration using tools like Git. This means that changes to the infrastructure can be tracked, reviewed, and rolled back if necessary. Additionally, infrastructure as code enables portability, allowing for easy migration of the infrastructure to different environments. This can be useful for testing and deployment.
 
-
 \section{Approach}
 % Here you include your architecture as figure(s) and explain your solution, the architecture components, their association, etc. It would be appreciated if you could argue based on what you learned in the lectures/labs, so argue based on network, storage, monitoring, data requirements, and edge-cloud specifications. Do not forget to analyze the use case beforehand.
 
-The application contains a frontend and a backend, where the frontend can be prerendered and sent to the client as a static PWA application, and the backend has a Node runtime, that must be run server side. The two parts communicate using WebSockets and a REST API interface.
+\subsection{Examination of the App}
+I started by examine the application, it consists of two key parts:
 
-...
+\paragraph{Frontend}
+A static Progressive Web Application ("PWA") made in React.js, that ships with a multi-stage Dockerfile, containing build and run stages. The build stage simply install NPM dependencies and run "npm run build" and ship the builded application to the run stage. The run stage serves the \textit{build} subdirectory using a regular nginx server.
+
+\paragraph{Backend}
+A Node.js Express HTTP Server, that ships with a Dockerfile single stage, installing NPM dependencies and run the server.
+
+\vspace{.25cm}
+
+Both parts uses the HTTP protocol. The backend also uses WebSockets in external communication to the user, and MongoDB Wire Protocol\footnote{\href{https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/}{https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/}} along with RESP\footnote{\href{https://redis.io/docs/reference/protocol-spec}{https://redis.io/docs/reference/protocol-spec}} system-to-system communication for between the application and respectively MongoDB and Redis.
+
+\subsection{Proposing an architecture}
+As the application consists of two parts, I divide them up:
+
+\paragraph{Frontend}
+The essential criteria for the frontend application is the delivery of files through HTTP. To address the sustainability and energy consumption requirements specified by OdenseEmergency, I don't think it's necessary to launch multiple virtual machines (Cloud Compute Engine) across the world just for a high availability nginx server serving static files, neither do I think it's necessary to spin up a container (Cloud Run) or a function (Cloud Functions) for each request to the frontend. Fortunately, Google Cloud provides an Object Storage solution (Cloud Storage), that can be used with a Content Delivery Network (Cloud CDN) to take advantage of the low latency of edge computing and serving files distributed globally. The solution is billed by egress and storage usage, and the compute power (CPU, RAM and IOPS) are shared between Google Cloud Storage customers. Lastly to use Google Cloud CDN and Google Cloud Storage with a custom DNS address and an encrypted connection (TLS (HTTPS)), you must setup a Global HTTP(S) Load Balancer, so this will count in the architecture for the frontend part.
+
+\paragraph{Backend}
+The backend has been architectured as a single service, so to prevent any changes to the original application, I would go with running the application, here I must decide whether I would go for an IaaS, PaaS or FaaS solution. 
 
 \section{Implementation}
 % Explain how you implement the app locally, then deploy it on GCP, and how the adaptation system (if any) may work. Explain the technologies you use for the non-functional requirements testing.
