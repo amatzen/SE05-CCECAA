@@ -144,7 +144,8 @@ The backend has been architectured as a single service, so to prevent any change
 
 To address which triggers, the backend service uses, it's only HTTP. The service runs two different types of protocols, an one-way communication protocol (regular HTTP-calls) and a two-way communication protocol (HTTP with WebSockets). As Google Cloud Functions (FaaS) are short-lived function calls, they would fit great for the regular HTTP-calls, but wouldn't fit that great for WebSockets as they rely on long-lived connections to the server. Therefore an IaaS or PaaS solution would fit better for this factor.
 
-The React app (frontend) has multiple calls to the backend in a short timespan, that could imply a pay-per-resources is better than pay-per-request.
+The React app (frontend) has multiple calls to the backend in a short timespan, that could imply a per-resource-usage pricing model would better than per-request pricing model.
+
 
 \section{Implementation}
 % Explain how you implement the app locally, then deploy it on GCP, and how the adaptation system (if any) may work. Explain the technologies you use for the non-functional requirements testing.
