@@ -130,10 +130,19 @@ Both parts uses the HTTP protocol. The backend also uses WebSockets in external 
 As the application consists of two parts, I divide them up:
 
 \paragraph{Frontend}
-The essential criteria for the frontend application is the delivery of files through HTTP. To address the sustainability and energy consumption requirements specified by OdenseEmergency, I don't think it's necessary to launch multiple virtual machines (Cloud Compute Engine) across the world just for a high availability nginx server serving static files, neither do I think it's necessary to spin up a container (Cloud Run) or a function (Cloud Functions) for each request to the frontend. Fortunately, Google Cloud provides an Object Storage solution (Cloud Storage), that can be used with a Content Delivery Network (Cloud CDN) to take advantage of the low latency of edge computing and serving files distributed globally. The solution is billed by egress and storage usage, and the compute power (CPU, RAM and IOPS) are shared between Google Cloud Storage customers. Lastly to use Google Cloud CDN and Google Cloud Storage with a custom DNS address and an encrypted connection (TLS (HTTPS)), you must setup a Global HTTP(S) Load Balancer, so this will count in the architecture for the frontend part.
+The essential criteria for the frontend application is the delivery of files through the HTTP protocol. To address the sustainability and energy consumption requirements specified by OdenseEmergency, I don't think it's necessary to launch multiple virtual machines (Cloud Compute Engine) across the world just for a high availability nginx server serving static files, neither do I think it's necessary to spin up a container (Cloud Run) or a function (Cloud Functions) for each request to the frontend. Fortunately, Google Cloud provides an Object Storage solution (Cloud Storage), that can be used with a Content Delivery Network (Cloud CDN) to take advantage of the low latency benefit of edge computing and serving files distributed globally. The solution is billed by egress and storage usage, and the compute power (CPU, RAM and IOPS) are shared between Google Cloud Storage customers. Lastly to use Google Cloud CDN and Google Cloud Storage with a custom DNS address and an encrypted connection (TLS (HTTPS)), you must setup a Global HTTP(S) Load Balancer, so this will count in the architecture for the frontend part.
 
 \paragraph{Backend}
-The backend has been architectured as a single service, so to prevent any changes to the original application, I would go with running the application, here I must decide whether I would go for an IaaS, PaaS or FaaS solution. 
+The backend has been architectured as a single service, so to prevent any changes to the original application, I would go with running the application as provided. Here I must decide whether I would go for an IaaS, PaaS or FaaS solution, in order to determine this I would look at several key factors:
+\begin{enumerate}
+	\item Which triggers does the backend service react upon?
+	\item How are the Network calls to the backend service from the frontend React application?
+	\item How would the application's "popularity" be forecasted scenario-wise?
+\end{enumerate}
+
+To address which triggers, the backend service uses, it's only HTTP. The service runs two different types of protocols, an one-way communication protocol (regular HTTP-calls) and a two-way communication protocol (HTTP with WebSockets). As Google Cloud Functions (FaaS) are short-lived function calls, they would fit great for the regular HTTP-calls, but wouldn't fit that great for WebSockets as they rely on long-lived connections to the server. Therefore an IaaS or PaaS solution would fit better for this factor.
+
+The React app (frontend) has multiple calls to the backend in a short timespan, that could imply a pay-per-resources is better than pay-per-request.
 
 \section{Implementation}
 % Explain how you implement the app locally, then deploy it on GCP, and how the adaptation system (if any) may work. Explain the technologies you use for the non-functional requirements testing.
@@ -142,7 +151,11 @@ The backend has been architectured as a single service, so to prevent any change
 \section{Evaluation}
 % Here include a report of your test results and discuss their validity and alignment with objectives.
 
+
 \section{Discussion}
 % Final discussions and lessons learned and how your suggested architecture could be re-used.
+
+
+
 
 \end{document}
