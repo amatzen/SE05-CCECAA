@@ -150,8 +150,13 @@ Last, the application's popularity I would describe as heavily spike-dependent, 
 
 I went with Cloud Run and sat the minimum scale to 1 container, so no cold starts appear (to ensure high availability) but also to allow infinite auto scaling on demand and a pricing model for used resources. This also allows for WebSockets to stay in the same service compared to Cloud Functions.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{proposed_architecture}
+	\caption{Proposed Architecture for OdenseEmergency}
+	\label{fig:proposed_architecture}
+\end{figure}
 
-\
 
 \section{Implementation}
 % Explain how you implement the app locally, then deploy it on GCP, and how the adaptation system (if any) may work. Explain the technologies you use for the non-functional requirements testing.
