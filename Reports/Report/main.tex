@@ -177,6 +177,9 @@ Furthermore, the Google Cloud CDN, the bucket in Google Cloud Storage, the load 
 
 The Redis instance was deployed using Google Cloud Memorystore, so the solution is managed, and the MongoDB server has been deployed on MongoDB Atlas (on GCP, but unfortunately without any direct connection, except for the external internet, to the existing Google Cloud project).
 
+\subsection{Testing}
+I've only tested for the deployed application, but here I used k6 \footnote{\href{https://k6.io/}{https://k6.io/}} to make a load test for both the frontend and the backend - the results are given in the evaluation section.
+
 
 \section{Evaluation}
 % Here include a report of your test results and discuss their validity and alignment with objectives.
