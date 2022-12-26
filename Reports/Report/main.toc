@@ -1,0 +1,18 @@
+\contentsline {section}{\numberline {1}Context}{2}{section.1}%
+\contentsline {section}{\numberline {2}Problem Specification}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Working Questions}{2}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Background}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Theory}{2}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Computing}{2}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Networking}{2}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Toolings}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Approach}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Examination of the App}{3}{subsection.4.1}%
+\contentsline {paragraph}{Frontend}{3}{paragraph*.1}%
+\contentsline {paragraph}{Backend}{3}{paragraph*.2}%
+\contentsline {subsection}{\numberline {4.2}Proposing an architecture}{3}{subsection.4.2}%
+\contentsline {paragraph}{Frontend}{3}{paragraph*.3}%
+\contentsline {paragraph}{Backend}{3}{paragraph*.4}%
+\contentsline {section}{\numberline {5}Implementation}{4}{section.5}%
+\contentsline {section}{\numberline {6}Evaluation}{4}{section.6}%
+\contentsline {section}{\numberline {7}Discussion}{4}{section.7}%
