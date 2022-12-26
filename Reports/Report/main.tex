@@ -161,6 +161,11 @@ I went with Cloud Run and sat the minimum scale to 1 container, so no cold start
 \section{Implementation}
 % Explain how you implement the app locally, then deploy it on GCP, and how the adaptation system (if any) may work. Explain the technologies you use for the non-functional requirements testing.
 
+\subsection{Local Deployment}
+To deploy the application locally, I took the given docker-compose file, added two services, a cache\_db (redis image) and a mongodb image, then I edited the environment variables to point to these services using Docker Compose's built-in networking DNS, so for instance the MongoDB connection string became \begin{verbatim*}
+	MONGO_DB_CONNECTION_STRING=mongodb://root:password@mongodb:27017
+\end{verbatim*} as the host "mongodb" is pointed to an internal IP address by the Docker engine.
+
 
 \section{Evaluation}
 % Here include a report of your test results and discuss their validity and alignment with objectives.
