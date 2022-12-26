@@ -166,6 +166,17 @@ To deploy the application locally, I took the given docker-compose file, added t
 	MONGO_DB_CONNECTION_STRING=mongodb://root:password@mongodb:27017
 \end{verbatim*} as the host "mongodb" is pointed to an internal IP address by the Docker engine.
 
+\subsection{Cloud Deployment}
+I went with the proposed architectures for both frontend and backend, but did settle on MongoDB Atlas outside of Google Cloud, which I would have done differently if it was in a real production environment with another's credit card than my own. The deployment process is done using two GitHub Actions workflow (attached in the code ZIP file, one for frontend, one for backend), describes as follows:
+
+Frontend: First build the React app, then upload the build folder (static content) to Google Cloud Storage, which Cloud CDN fetches from (after cache invalidation in a period of hours).
+
+Backend: The workflow starts building the Dockerfile in the backend directory and then push it to the Google Cloud Artifactory Registry, then the workflow furthermore tells Cloud Run to run the newest image. 
+
+Furthermore, the Google Cloud CDN, the bucket in Google Cloud Storage, the load balancer and IPv4 address reservations have been done manually using the Google Cloud Web Portal.
+
+The Redis instance was deployed using Google Cloud Memorystore, so the solution is managed, and the MongoDB server has been deployed on MongoDB Atlas (on GCP, but unfortunately without any direct connection, except for the external internet, to the existing Google Cloud project).
+
 
 \section{Evaluation}
 % Here include a report of your test results and discuss their validity and alignment with objectives.
