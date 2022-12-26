@@ -148,6 +148,8 @@ The React app (frontend) has multiple calls to the backend in a short timespan, 
 
 Last, the application's popularity I would describe as heavily spike-dependent, as hopefully the application is not used that often, but should be able to scale indefinitely, hence why a hyper-scaling solution like Kubernetes (GKE Standard or GKE Autopilot), Google Cloud Run or Google Cloud Functions.
 
+I went with Cloud Run and sat the minimum scale to 1 container, so no cold starts appear (to ensure high availability) but also to allow infinite auto scaling on demand and a pricing model for used resources. This also allows for WebSockets to stay in the same service compared to Cloud Functions.
+
 
 \
 
