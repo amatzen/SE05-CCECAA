@@ -193,7 +193,7 @@ To test the implementation properly, a load test of both the frontend and the ba
 	\label{fig:scr:k6:loadtest}
 \end{figure}
 
-As shown in Figure \ref{fig:scr:k6:loadtest}, the frontend was able to pass the checks criteria, meanwhile the backend was not. The backend uses Google Cloud Run, which scales containers, and without having 
+As shown in Figure \ref{fig:scr:k6:loadtest}, the frontend was able to pass the checks criteria of 99\% of requests to successfully retrieve a response within 1.2 seconds, while the backend was not. Also 929 requests in total failed, which corresponds to the number of failed checks of the backend's scalability. A guess of mine is that either Google Cloud Armor did kick it with it's automatically applied DDoS protection on Global HTTP(S) Load Balancer or that the first instance in Cloud Run were too overloaded and the auto scaler hadn't started a new container in time. Unfortunately I didn't investigate this further.
 
 \section{Discussion}
 % Final discussions and lessons learned and how your suggested architecture could be re-used.
