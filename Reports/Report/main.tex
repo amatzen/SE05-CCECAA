@@ -157,6 +157,16 @@ Last, the application's popularity I would describe as heavily spike-dependent, 
 \section{Evaluation}
 % Here include a report of your test results and discuss their validity and alignment with objectives.
 
+To test the implementation properly, an 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{scr_k6_loadtest}
+	\caption{Screenshot of K6 Load Test Result}
+	\label{fig:scr:k6:loadtest}
+\end{figure}
+
+As shown in Figure \ref{fig:scr:k6:loadtest}, the frontend was able to pass the checks criteria, meanwhile the backend was not. The backend uses Google Cloud Run, which scales containers, and without having 
 
 \section{Discussion}
 % Final discussions and lessons learned and how your suggested architecture could be re-used.
