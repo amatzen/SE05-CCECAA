@@ -202,5 +202,7 @@ I think the architecture works, but have improvement opportunity. First of all, 
 
 Another option would be to use GKE Autopilot or GKE Standard, as Kubernetes allow for easy geo redundancy and clustering, which would also allow the solution to be multi-cloud further strengthening the uptime in case Google would suffer a global downtime for its cloud services.
 
+Personally, I would also have had MongoDB inside Google Cloud, but the partner solution Google Cloud provides is not available to free tier plans, and therefore I went with MongoDB Atlas and whitelisted all IP-addresses to access the database server, which itself can be impose a security risk. Kubernetes could also have solved this by including Redis and MongoDB as deployments inside the Kubernetes allowing for more cohesion between the services, however Kubernetes could also has a negative impact on the fulfillment on the energy consumption requirements as it requires multiple nodes to be up always to ensure high availability.
+
 
 \end{document}
