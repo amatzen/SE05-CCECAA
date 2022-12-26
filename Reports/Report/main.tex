@@ -200,6 +200,7 @@ As shown in Figure \ref{fig:scr:k6:loadtest}, the frontend was able to pass the 
 
 I think the architecture works, but have improvement opportunity. First of all, the deployed architecture's backend is not geo-redundant, which means, if the servers for some reason are unavailable in Finland, the service will not function at all. This could however be done by adding multiple Google Cloud Run instances and selecting different regions and then get the Global HTTP(S) Load Balancer to route to nearest data center.
 
+Another option would be to use GKE Autopilot or GKE Standard, as Kubernetes allow for easy geo redundancy and clustering, which would also allow the solution to be multi-cloud further strengthening the uptime in case Google would suffer a global downtime for its cloud services.
 
 
 \end{document}
