@@ -198,6 +198,7 @@ As shown in Figure \ref{fig:scr:k6:loadtest}, the frontend was able to pass the 
 \section{Discussion}
 % Final discussions and lessons learned and how your suggested architecture could be re-used.
 
+I think the architecture works, but have improvement opportunity. First of all, the deployed architecture's backend is not geo-redundant, which means, if the servers for some reason are unavailable in Finland, the service will not function at all. This could however be done by adding multiple Google Cloud Run instances and selecting different regions and then get the Global HTTP(S) Load Balancer to route to nearest data center.
 
 
 
